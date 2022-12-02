@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-
-// import validateEmail from '../../utils/helper';
+import Github from "../images/Github_icon.png";
+import Linkedin from "../images/Linkedin_icon.png";
+import { validateEmail } from '../../utils/helper';
 import '../styles/style.css'
 
 // couldn't get import to work yet.  Check back to this again later.
 // For now we're just gonna place validateEmail function in contacts.js
-function validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
+// function validateEmail(email) {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+//   }
 
 export default function Contact() {
 
@@ -58,8 +59,9 @@ export default function Contact() {
     }
 
     return (
-        <div>
+        <div className="container text-bg-info p-3">
             <form className="form">
+                <h4>Username:</h4>
                 <input
                     value={userName}
                     name="userName"
@@ -67,6 +69,7 @@ export default function Contact() {
                     type="text"
                     placeholder="username"
                 />
+                <h4>Email:</h4>
                 <input
                     value={email}
                     name="email"
@@ -74,12 +77,14 @@ export default function Contact() {
                     type="email"
                     placeholder="email"
                 />
+                <h4>Message:</h4>
                 <input
                     value={message}
                     name="message"
                     onChange={handleInputChange}
                     type="text"
                     placeholder="message"
+                    style={{ height: 200 }}
                 />
                 <button type="button" onClick={handleFormSubmit}>Submit</button>
             </form>
@@ -88,6 +93,17 @@ export default function Contact() {
                     <p className="error-text">{errorMessage}</p>
                 </div>
             )}
+            <div className="container text-center">
+                <h3>Social:</h3>
+                <a href="https://github.com/Crestatic?tab=repositories" className="col-2">
+                    <img src={Github} alt="Github Page" style={{ width: 50, height: 50}}/>
+                </a>
+                <a href="" className="col-2">
+                    <img src={Linkedin} alt="Linkedin Page" style={{ width: 50, height: 50}}/>
+                </a>
+            </div>
+            
         </div>
+
     );
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import NavTabs from './NavTabs';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
-import Resume from './pages/Resume';
+import NavTabs from './navTabs';
+import About from './pages/about';
+import Portfolio from './pages/portfolio';
+import Contact from './pages/contact';
+import Resume from './pages/resume';
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState('About');
@@ -32,5 +32,7 @@ export default function PortfolioContainer() {
       {/* Here we are calling the renderPage method which will return a component  */}
       {renderPage()}
     </div>
+    
+
   );
 }
